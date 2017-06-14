@@ -12,7 +12,8 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-
+    <link href="{{asset('/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -83,6 +84,7 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <!-2<script src="{{asset('/js/bootstrap.min.js')}}"></script>
     @include('layouts.menu')
     @include('layouts.profil')
 </body>

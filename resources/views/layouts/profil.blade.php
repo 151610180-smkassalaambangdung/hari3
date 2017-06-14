@@ -1,4 +1,4 @@
 <center>
-	<th> nama : Ananda ayu </th><br>
-	<th>kelas : XI rpl 2 </th>
+	<h1><th> Ananda ayu </th><br>
+	<th>XI rpl 2 </th></h1>
 </center>
