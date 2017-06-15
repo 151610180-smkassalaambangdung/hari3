@@ -22,3 +22,8 @@ Route::get('/home', 'HomeController@index');
 Auth::routes();
 
 Route::get('/index', 'indexController@index');
+
+Route::group(['prefix'=>'admin','middleware'=>['auth']], function(){
+	//ROute diisi disini...
+	Route::resource('authors', 'AuthorsController');
+});
