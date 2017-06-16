@@ -11,8 +11,9 @@ class indexController extends Controller
     {
     	$this->middleware('auth');
     }
-    public function index()
+    public function ()
     {
     	return "selamat datang ";
     }
+    
 }

@@ -23,7 +23,7 @@ Auth::routes();
 
 Route::get('/index', 'indexController@index');
 
-Route::group(['prefix'=>'admin','middleware'=>['auth']], function(){
-	//ROute diisi disini...
+Route::group(['prefix'=>'admin','middleware'=>['auth', 'role:admin']], function(){
+	
 	Route::resource('authors', 'AuthorsController');
 });

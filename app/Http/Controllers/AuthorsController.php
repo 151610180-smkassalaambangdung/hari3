@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Author;
 use Illuminate\Http\Request;
+use Yajra\Datatables\Html\Builder;
+use Yajra\Datatables\Datatables;
 
 class AuthorsController extends Controller
 {
@@ -11,10 +15,19 @@ class AuthorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+   
+    public function index (Request $request, Builder $htmlBuilder)
     {
-        //
+        if($request->ajax()) {
+            $Authors = Author::select(['id','name']);
+            return Datatables::of($Authors)->make(true);
+        }
+        $html = $htmlBuilder
+        ->AddColumn(['data'=>'name','name'=>'name','title'=>'Nama']);
+        return view('authors.index')->with(compact('html'));
+
     }
+
 
     /**
      * Show the form for creating a new resource.

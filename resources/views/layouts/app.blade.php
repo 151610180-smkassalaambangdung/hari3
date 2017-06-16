@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/jquery.dataTables.css" rel="stylesheet">
+    <link href="/css/dataTables.bootstrap.css" rel="stylesheet">
     <link href="{{asset('/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Scripts -->
@@ -44,7 +46,11 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                    @if (Auth::check())
+                    <li><a href="{{ url('/home') }}">Dashboard</a></li>
+                    <li><a href="{{ route('authors.index') }}">penulis</a></li>
+                    
+                    @endif 
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -62,7 +68,7 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                         <a href="{{ url('/logout') }}"
-                                            onclick="event.preventDefault();
+                                            onclick="event.preventDefaul();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
@@ -84,7 +90,10 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
-    <!-2<script src="{{asset('/js/bootstrap.min.js')}}"></script>
+    <script src="/js/jquery.dataTables.min.js"></script>
+    <script src="/js/dataTables.bootstrap.min.js"></script>
+    <!--<script src="{{asset('/js/bootstrap.min.js')}}"> </script> -->
+    @yield('scripts')
     @include('layouts.menu')
     @include('layouts.profil')
 </body>
