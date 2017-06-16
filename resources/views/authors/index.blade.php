@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<ul class="breadcrumb">
-				<li><a href="{{ url('/home') }}">Dashboard</li>
+				<li><a href="{{ url('/home') }}">Dashboard</a></li>
 				<li class="active">penulis</li>
 				</ul>
 				<div class="panel panel-default">
@@ -14,10 +14,12 @@
 					</div>
 
 					<div class="panel-body"></div>
+
 					{!! $html->table(['class'=>'table-striped']) !!}
 		        </div>
 
 @endsection
+
 @section('scripts')
-{!! $html->scripts()!!}
+{!! $html->scripts() !!}
 @endsection

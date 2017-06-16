@@ -16,15 +16,15 @@ class AuthorsController extends Controller
      * @return \Illuminate\Http\Response
      */
    
-    public function index (Request $request, Builder $htmlBuilder)
+    public function index(Request $request, Builder $htmlBuilder)
     {
-        if($request->ajax()) {
-            $Authors = Author::select(['id','name']);
-            return Datatables::of($Authors)->make(true);
+        if($request->ajax() ) {
+            $authors = Author::select(['id', 'name']);
+            return Datatables::of($authors)->make(true);
         }
         $html = $htmlBuilder
-        ->AddColumn(['data'=>'name','name'=>'name','title'=>'Nama']);
-        return view('authors.index')->with(compact('html'));
+        ->AddColumn(['data'=>'name', 'name'=>'name', 'title'=>'Nama']);
+        return view('Authors.index')->with(compact('html'));
 
     }
 
@@ -36,7 +36,7 @@ class AuthorsController extends Controller
      */
     public function create()
     {
-        //
+        return view('authors.create');
     }
 
     /**
@@ -47,7 +47,9 @@ class AuthorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->vallidate($request,['name'=>'required|unique:Authors']);
+        $author = Author::create($request->all());
+        return redirect()->route('authors.index');
     }
 
     /**
